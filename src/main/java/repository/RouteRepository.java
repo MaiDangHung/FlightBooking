@@ -16,4 +16,6 @@ import org.springframework.stereotype.Repository;
 public interface RouteRepository extends CrudRepository<RouteEntity, Integer>{
     @Query(value ="select * from RouteFlight where froms =?1",nativeQuery = true)
     List<RouteEntity> getRouteByFroms(String froms);
+//    @Query(value ="select distinct froms from RouteFlight",nativeQuery = true)
+//    List<RouteEntity> getFroms();
 }

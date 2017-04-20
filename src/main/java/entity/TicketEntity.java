@@ -19,7 +19,7 @@ public class TicketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ticketID;
-    private int seatNumber;
+    private String seatNumber;
     private String cusName;
     private String cmnd;
     private double priceTicket;
@@ -46,7 +46,7 @@ public class TicketEntity {
     public TicketEntity() {
     }
 
-    public TicketEntity(int seatNumber, String cusName, String cmnd, double priceTicket, BookingEntity booking, ClassTicketEntity classTicketEntity, LuggageEntity luggageEntity, FlightEntity flight, TypeTicketEntity typeTicket) {
+    public TicketEntity(String seatNumber, String cusName, String cmnd, double priceTicket, BookingEntity booking, ClassTicketEntity classTicketEntity, LuggageEntity luggageEntity, FlightEntity flight, TypeTicketEntity typeTicket) {
         this.seatNumber = seatNumber;
         this.cusName = cusName;
         this.cmnd = cmnd;
@@ -55,6 +55,86 @@ public class TicketEntity {
         this.classTicketEntity = classTicketEntity;
         this.luggageEntity = luggageEntity;
         this.flight = flight;
+        this.typeTicket = typeTicket;
+    }
+
+    public int getTicketID() {
+        return ticketID;
+    }
+
+    public void setTicketID(int ticketID) {
+        this.ticketID = ticketID;
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public String getCusName() {
+        return cusName;
+    }
+
+    public void setCusName(String cusName) {
+        this.cusName = cusName;
+    }
+
+    public String getCmnd() {
+        return cmnd;
+    }
+
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
+
+    public double getPriceTicket() {
+        return priceTicket;
+    }
+
+    public void setPriceTicket(double priceTicket) {
+        this.priceTicket = priceTicket;
+    }
+
+    public BookingEntity getBooking() {
+        return booking;
+    }
+
+    public void setBooking(BookingEntity booking) {
+        this.booking = booking;
+    }
+
+    public ClassTicketEntity getClassTicketEntity() {
+        return classTicketEntity;
+    }
+
+    public void setClassTicketEntity(ClassTicketEntity classTicketEntity) {
+        this.classTicketEntity = classTicketEntity;
+    }
+
+    public LuggageEntity getLuggageEntity() {
+        return luggageEntity;
+    }
+
+    public void setLuggageEntity(LuggageEntity luggageEntity) {
+        this.luggageEntity = luggageEntity;
+    }
+
+    public FlightEntity getFlight() {
+        return flight;
+    }
+
+    public void setFlight(FlightEntity flight) {
+        this.flight = flight;
+    }
+
+    public TypeTicketEntity getTypeTicket() {
+        return typeTicket;
+    }
+
+    public void setTypeTicket(TypeTicketEntity typeTicket) {
         this.typeTicket = typeTicket;
     }
     

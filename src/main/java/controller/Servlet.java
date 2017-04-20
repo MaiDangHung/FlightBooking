@@ -21,6 +21,7 @@ public class Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String id=request.getParameter("cID");
         
         
     }

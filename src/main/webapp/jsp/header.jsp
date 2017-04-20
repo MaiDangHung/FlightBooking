@@ -36,7 +36,54 @@
         });
  
         </script>-->
-        
+<!--        <script>
+//        function myFunction() {
+//            var x = document.getElementById("countryList").value;
+         $(document).ready(function(){
+             $("#countryList").change(function(){
+         var x=$("#countryList").val();
+            $.ajax
+                ({
+                    url : "a.html?cID="+selectedValue+'',
+                    type: "post",
+                    data: "froms="+x,
+                    async: true,
+                    success : function(result) 
+                    {
+                        $("#prvContatiner").html(result);
+                        
+                    }
+                });
+                });
+                
+            });
+        </script>-->
+        <script>
+            function myFunction() {
+              var xhttp = new XMLHttpRequest();   
+              var fromList = document.getElementById("from");
+              var from = fromList.options[fromList.selectedIndex].value;
+              //alert("Test: " + from);
+              xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {                                  
+                  document.getElementById("demo").innerHTML=this.responseText;;
+                }
+              };
+              //content('Content-Type:text/html; charset=UTF-8');
+              xhttp.open("GET", "ajaxDemo/" + from, true);
+              xhttp.send();
+            }        
+        </script>
+        <script>
+            function khuhoi(){
+                $(".ngayve").show();
+            }
+        </script>
+        <script>
+            function motchieu(){
+                $(".ngayve").hide();
+            }
+        </script>
   </head>
   <body>
     <body>

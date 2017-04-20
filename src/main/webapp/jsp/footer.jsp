@@ -61,20 +61,6 @@
 			}
 	</script>
     <script src="js/jquery.cycle2.js"></script>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("countryList").value;
     
-            $.ajax
-                ({
-                    url : "a.html?cID="+x+'',
-                    success : function(result) 
-                    {
-                        $("#prvContatiner").html(result);
-                        
-                    }
-                });
-            }
-        </script>
   </body>
 </html>

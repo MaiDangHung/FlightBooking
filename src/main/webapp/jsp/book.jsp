@@ -12,48 +12,85 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            table{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th,td{
+                border: 1px solid black;
+                padding: .5em;
+            }
+        </style>
+        <script>
+            function ClassTicket(){
+               // var dateGoes=$('input:radio[name=classTicketID]:checked').val();
+              var date = document.getElementById("#classTicket123").value;
+              alert("Hello");
+              alert(date);
+            }
+        </script>
     </head>
     <body>
-        <h1>${action}</h1>
-        <mvc:form action="${pageContext.request.contextPath}/${action}" modelAttribute="book" method="post">
-            <table>
-                <c:if test="${action=='update'}">
-                <tr>
-                    <td>ID: </td>
-                    <td><mvc:input path="id" type="text" required="true" readonly="${readonly}"/></td>
-                </tr>
-                </c:if>
-                <tr>
-                    <td>Name(*): </td>
-                    <td><mvc:input path="name" type="text" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>Author(*): </td>
-                    <td><mvc:input path="author" type="text" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>ISBN(*): </td>
-                    <td><mvc:input path="isbn" type="text" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>Price(*): </td>
-                    <td><mvc:input path="price" type="text" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>Publish Date: </td>
-                    <td><mvc:input path="publishDate" type="Date" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>Category: </td>
-                    <td><mvc:select path="category">
-                            <mvc:option value="Programming">Programming</mvc:option>
-                            <mvc:option value="Database">Database</mvc:option>
-                        </mvc:select></td>
-                </tr>
-                <tr>                    
-                    <td colspan="2"><input type="submit" value="Submit"/></td>                    
-                </tr>
+        <p>${message}</p>
+        <p>${message1}</p>
+        <table>
+                <thead>
+                    <tr>
+                        <th>Date Goes</th>
+                        <th>Time Goes</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Flight Code</th>
+<!--                        <th>Eco</th>
+                        <th>Skyboss</th>-->
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="book" items="${bookList}">
+                        <tr>
+                        <td id="dateGoes">${book.dateGoes}</td>
+                        <td>${book.timeGoes}</td>
+                        <td>${book.froms}</td>                        
+                        <td>${book.tos}</td>
+                        <td>${book.flightID}</td>
+<!--                        <td><input type="radio" name="classTicketID" value="1" onclick="ClassTicket()" id="classTicket123"> ${book.price}<br></td>
+                        <td><input type="radio" name="classTicketID" value="2"> ${book.price+book.price}<br></td>-->
+                        <td><a href="showFlight/${book.flightID}">Chọn chuyến bay</a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </table>
-        </mvc:form>
+        
+        <table style="visibility: ${hidden}">
+                <thead>
+                    <tr>
+                        <th>Date Goes</th>
+                        <th>Time Goes</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Flight Code</th>
+                        <th>Eco</th>
+                        <th>Skyboss</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="book" items="${bookList1}">
+                        <tr>
+                        <td>${book.dateGoes}</td>
+                        <td>${book.timeGoes}</td>
+                        <td>${book.froms}</td>                        
+                        <td>${book.tos}</td>
+                        <td>${book.flightID}</td>
+                        <td><input type="radio" name="classTicketID1" value="1"> ${book.price}<br></td>
+                        <td><input type="radio" name="classTicketID1" value="2"> ${book.price+book.price}<br></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+               
+                <p id="inf"></p>    
+            
     </body>
 </html>

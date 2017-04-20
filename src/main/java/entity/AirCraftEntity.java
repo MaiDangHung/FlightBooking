@@ -20,6 +20,8 @@ public class AirCraftEntity {
     private int numberSeats;
     private String picture;
     private String description;
+    private int ecoNumberSeats;
+    private int skybossNumberSeats;
     
     @OneToMany(mappedBy = "aircraft", fetch = FetchType.EAGER)
     private List<FlightEntity> flightEntityList;
@@ -33,6 +35,15 @@ public class AirCraftEntity {
         this.picture = picture;
         this.description = description;
         this.flightEntityList = flightEntityList;
+    }
+
+    public AirCraftEntity(String airName, int numberSeats, String picture, String description, int ecoNumberSeats, int skybossNumberSeats) {
+        this.airName = airName;
+        this.numberSeats = numberSeats;
+        this.picture = picture;
+        this.description = description;
+        this.ecoNumberSeats = ecoNumberSeats;
+        this.skybossNumberSeats = skybossNumberSeats;
     }
 
     public int getAirID() {
@@ -81,6 +92,22 @@ public class AirCraftEntity {
 
     public void setFlightEntityList(List<FlightEntity> flightEntityList) {
         this.flightEntityList = flightEntityList;
+    }
+
+    public int getEcoNumberSeats() {
+        return ecoNumberSeats;
+    }
+
+    public void setEcoNumberSeats(int ecoNumberSeats) {
+        this.ecoNumberSeats = ecoNumberSeats;
+    }
+
+    public int getSkybossNumberSeats() {
+        return skybossNumberSeats;
+    }
+
+    public void setSkybossNumberSeats(int skybossNumberSeats) {
+        this.skybossNumberSeats = skybossNumberSeats;
     }
     
     
