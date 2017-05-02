@@ -1,12 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="lienhe">
-			<img src="img/footer.png" />
+			<img src="${pageContext.request.contextPath}/img/footer.png" />
 		</div>
 		
 		<div class="chungnhan">
-			<img src="img/chungnhan1.png" /><br><br>
-			<img src="img/chungnhan2.png" />
+			<img src="${pageContext.request.contextPath}/img/chungnhan1.png" /><br><br>
+			<img src="${pageContext.request.contextPath}/img/chungnhan2.png" />
 		</div>
 		
 		<div class="footer">

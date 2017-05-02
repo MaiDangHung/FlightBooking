@@ -30,12 +30,12 @@ public class BookingEntity {
     private List<TicketEntity> ticketEntityList;
     
     @OneToOne(mappedBy = "bookingEntity")
-    private CardDetailEntity cardDetailEntity;
+    private TransactionLogEntity transactionLog;
 
     public BookingEntity() {
     }
 
-    public BookingEntity(Date dateBook, String customerName, String customerAddress, String customerPhone, String customerEmail, double totalAmount, List<TicketEntity> ticketEntityList, CardDetailEntity cardDetailEntity) {
+    public BookingEntity(Date dateBook, String customerName, String customerAddress, String customerPhone, String customerEmail, double totalAmount, List<TicketEntity> ticketEntityList, TransactionLogEntity transactionLog) {
         this.dateBook = dateBook;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
@@ -43,7 +43,7 @@ public class BookingEntity {
         this.customerEmail = customerEmail;
         this.totalAmount = totalAmount;
         this.ticketEntityList = ticketEntityList;
-        this.cardDetailEntity = cardDetailEntity;
+        this.transactionLog = transactionLog;
     }
 
     public int getBookingID() {
@@ -110,13 +110,15 @@ public class BookingEntity {
         this.ticketEntityList = ticketEntityList;
     }
 
-    public CardDetailEntity getCardDetailEntity() {
-        return cardDetailEntity;
+    public TransactionLogEntity getTransactionLog() {
+        return transactionLog;
     }
 
-    public void setCardDetailEntity(CardDetailEntity cardDetailEntity) {
-        this.cardDetailEntity = cardDetailEntity;
+    public void setTransactionLog(TransactionLogEntity transactionLog) {
+        this.transactionLog = transactionLog;
     }
+
+    
     
     
 }

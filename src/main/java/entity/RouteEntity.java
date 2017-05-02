@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,6 +18,13 @@ public class RouteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeID;
+    @ManyToOne
+    @JoinColumn(name="froms", insertable = false, updatable = false)
+    private AirportStationEntity fromsStation;
+    
+    @ManyToOne
+    @JoinColumn(name="tos", insertable = false, updatable = false)    
+    private AirportStationEntity tosStation;
     private String froms;
     private String tos;
     private String distance;
@@ -28,6 +37,15 @@ public class RouteEntity {
         this.routeID = routeID;
         this.froms = froms;
         this.tos = tos;
+        this.distance = distance;
+        this.intendTime = intendTime;
+        this.flightEntityList = flightEntityList;
+    }
+
+    public RouteEntity(int routeID, AirportStationEntity fromsStation, AirportStationEntity tosStation, String distance, String intendTime, List<FlightEntity> flightEntityList) {
+        this.routeID = routeID;
+        this.fromsStation = fromsStation;
+        this.tosStation = tosStation;
         this.distance = distance;
         this.intendTime = intendTime;
         this.flightEntityList = flightEntityList;
@@ -82,6 +100,22 @@ public class RouteEntity {
 
     public void setFlightEntityList(List<FlightEntity> flightEntityList) {
         this.flightEntityList = flightEntityList;
+    }
+
+    public AirportStationEntity getFromsStation() {
+        return fromsStation;
+    }
+
+    public void setFromsStation(AirportStationEntity fromsStation) {
+        this.fromsStation = fromsStation;
+    }
+
+    public AirportStationEntity getTosStation() {
+        return tosStation;
+    }
+
+    public void setTosStation(AirportStationEntity tosStation) {
+        this.tosStation = tosStation;
     }
     
     

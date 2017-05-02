@@ -5,12 +5,12 @@
  */
 package repository;
 
-import entity.CardDetailEntity;
+import entity.TransactionLogEntity;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CardDetailRepository extends CrudRepository<CardDetailEntity, Integer>{
+public interface TransactionLogRepository extends CrudRepository<TransactionLogEntity, Integer>{
     
 }

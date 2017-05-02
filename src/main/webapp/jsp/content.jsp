@@ -21,7 +21,7 @@
                                           <select name="froms" id="from" onchange="myFunction()" onload="myFunction()">
 						  <option value="thin">Từ</option>
                                                   <c:forEach var="routeList" items="${routeList}">
-                                                    <option value="${routeList.froms}" >${routeList.froms}</option>
+                                                    <option value="${routeList.fromsStation.airportID}" >${routeList.fromsStation.airportName}</option>
                                                   </c:forEach>
 					  </select>
 					  <label>Khởi hành</label>

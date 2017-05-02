@@ -5,8 +5,8 @@
  */
 package repository;
 
-import entity.ClassTicketEntity;
-import entity.RouteEntity;
+import entity.AirportStationEntity;
+import entity.SearchEntity;
 import java.io.Serializable;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +14,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClassTicketRepository extends CrudRepository<ClassTicketEntity, Integer>{
-    @Query(value ="select * from ClassTicket where classTicketName=?",nativeQuery = true)
-    ClassTicketEntity getClassTicketByName(String name);
+public interface AirportStationRepository extends CrudRepository<AirportStationEntity, Integer>{
+    @Query(value ="select airportName from AirportStation where airportID=?",nativeQuery = true)
+    String getAirName(String ID);
 }

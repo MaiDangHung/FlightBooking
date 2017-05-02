@@ -15,10 +15,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>home</title>
    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery-ui.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -65,12 +65,13 @@
             form2.seat2.value=v1;
             form2.classTicket.value=v2;
       }
-//      <script language="javascript" type="text/javascript">
-  //      function ghi(v1,v2){//
-//            document.getElementById("seat2").innerHTML=v1;
-//            form4.seat2.value=v1;
-//            form4.classTicket.value=v2;
-//      }
+  </script>
+  <script language="javascript" type="text/javascript">
+        function ghi1(v1,v2){//
+            document.getElementById("seat1").innerHTML=v1;
+            form4.seat2.value=v1;
+            form4.classTicket.value=v2;
+      }
   </script>
   <script>
       function onload(){
@@ -90,6 +91,17 @@
                 $("#eco").hide();
             }
         </script>
+        <script>
+            function loadSeat(){
+               var x=document.getElementsByID("seat").value;
+                    <c:forEach var="seat" items="${seatNumber}">
+                        <c:if test="${seat.seatNumber==x}">
+                            document.getElementsByClassName("btn btn-info btn-lg").style.background-color="green";
+                        </c:if>
+                    </c:forEach>
+            }
+        
+        </script>
   </head>
   <body>
     <!-- -->
@@ -99,7 +111,7 @@
 		</div>
 		
 		<div id="logo">
-          <img src="img/travelo.png" />
+          <img src="${pageContext.request.contextPath}/img/travelo.png" />
         </div>
 		
 		<!-- menu-->

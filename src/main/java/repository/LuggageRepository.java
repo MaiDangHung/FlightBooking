@@ -5,12 +5,15 @@
  */
 package repository;
 
+import entity.ClassTicketEntity;
 import entity.LuggageEntity;
 import java.io.Serializable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LuggageRepository extends CrudRepository<LuggageEntity, Integer>{
-    
+    @Query(value ="select * from Luggage where lugName=?",nativeQuery = true)
+    LuggageEntity getLuggageByName(String name);
 }

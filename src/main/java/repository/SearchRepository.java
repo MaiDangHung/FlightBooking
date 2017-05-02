@@ -15,9 +15,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SearchRepository extends CrudRepository<SearchEntity, Integer>{
-    @Query(value ="select Flight.dateGoes,RouteFlight.froms,RouteFlight.tos,Flight.flightID,Flight.price,Flight.timeGoes,RouteFlight.intendTime from Flight,RouteFlight where dateGoes >= ? and froms=? and tos=? and Flight.routeID=RouteFlight.routeID",nativeQuery = true)
+    @Query(value ="select Flight.dateGoes,RouteFlight.froms,RouteFlight.tos,Flight.flightID,Flight.price,Flight.timeGoes,RouteFlight.intendTime from Flight,RouteFlight where dateGoes > ? and froms=? and tos=? and Flight.routeID=RouteFlight.routeID",nativeQuery = true)
     List<SearchEntity> getAllOneWay(String date,String froms, String tos);
     
-    @Query(value ="select Flight.dateGoes,RouteFlight.froms,RouteFlight.tos,Flight.flightID,Flight.price,Flight.timeGoes,RouteFlight.intendTime from Flight,RouteFlight where dateGoes >= ? and froms=? and tos=? and Flight.routeID=RouteFlight.routeID",nativeQuery = true)
+    @Query(value ="select Flight.dateGoes,RouteFlight.froms,RouteFlight.tos,Flight.flightID,Flight.price,Flight.timeGoes,RouteFlight.intendTime from Flight,RouteFlight where dateGoes > ? and froms=? and tos=? and Flight.routeID=RouteFlight.routeID",nativeQuery = true)
     List<SearchEntity> getAllTwoWay(String date,String froms, String tos);
+    
+    @Query(value ="select Flight.dateGoes,RouteFlight.froms,RouteFlight.tos,Flight.flightID,Flight.price,Flight.timeGoes,RouteFlight.intendTime from Flight,RouteFlight where dateGoes = ? and froms=? and tos=? and Flight.routeID=RouteFlight.routeID",nativeQuery = true)
+    List<SearchEntity> getAllByDate1(String date,String froms, String tos);
 }
